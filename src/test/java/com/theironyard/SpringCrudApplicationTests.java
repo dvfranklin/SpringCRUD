@@ -13,6 +13,7 @@ public class SpringCrudApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		int x = 0;
 	}
 
 }
