@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="523512109">
+    <data-source source="LOCAL" name="PostgreSQL - springcrud@localhost" uuid="f6a3fc96-62c7-4e58-ad09-aaa41026408b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/springcrud</jdbc-url>
+    </data-source>
+  </component>
+</project>

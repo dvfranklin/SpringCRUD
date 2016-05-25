@@ -1,0 +1,55 @@
+<html>
+<body>
+
+<h1>Footy Tracker</h1>
+
+
+{{#badInfo}}
+    <div>Username or password incorrect!</div>
+{{/badInfo}}
+
+<!-- if user is not logged in, display login/signup info -->
+{{^user}}
+
+    <form action="/login" method="post">
+        <input type="text" placeholder="Enter your name" name="username"/>
+        <input type="password" placeholder="Enter your password" name="password"/>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div>
+        Don't have an account? <a href="/signup">Sign up here</a>!
+    </div>
+
+{{/user}}
+
+{{#user}}
+    Welcome {{username}}<br>
+    <a href="/logout">Log out</a>
+
+    <form action="/create" method="post">
+        <input type="text" name="name" placeholder="Player name">
+        <input type="text" name="position" placeholder="Player position">
+        <input type="text" name="club" placeholder="Club">
+        <input type="number" name="goals" placeholder="Career goals">
+        <button type="submit">Add to Roster</button>
+    </form>
+
+    {{#footballers}}
+         plays {{position}} for {{club}} - he has scored {{goals}} career goals.
+        <form action="/edit" method="get">
+            <input type="hidden" name="id" value="{{id}}">
+            <button type="submit" style="display: inline">Edit</button>
+        </form>
+
+        <form action="/delete" method="post">
+            <input type="hidden" name="id" value="{{id}}">
+            <button type="submit" style="display: inline">Delete</button>
+        </form>
+        <br>
+    {{/footballers}}
+
+{{/user}}
+
+</body>
+</html>
