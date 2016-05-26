@@ -26,6 +26,7 @@ public class SpringCrudController {
         User user = uRepo.findUserByUsername((String)session.getAttribute("username"));
 
         model.addAttribute("user", user);
+        model.addAttribute("badInfo", session.getAttribute("badInfo"));
 
         List<Footballer> footballers = fRepo.findAllByUser(user);
 
@@ -56,8 +57,9 @@ public class SpringCrudController {
 
         if(PasswordStorage.verifyPassword(password, user.getPassword())){
             session.setAttribute("username", username);
+            session.removeAttribute("badInfo");
         } else{
-            model.addAttribute("badInfo");
+            session.setAttribute("badInfo", "badInfo");
         }
         return "redirect:/";
     }
